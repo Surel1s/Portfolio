@@ -43,10 +43,7 @@ li {
 
 li:hover {
     transform: scale(1.05);
-}
-
-.menu a:hover {
-    background: #A9A1A4;
+    opacity: 0.6;
 }
 
 .list a{
@@ -91,7 +88,7 @@ li:hover {
 }
 .work-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     grid-gap: 4rem;
     width: 100%;
     max-width: 1280px;
@@ -109,16 +106,20 @@ li:hover {
 }
 
 .work-image {
-    height: 500px;
-    width: 350px;
+    max-width: 340px;
     object-fit: cover;
 }
 
 .work {
     background: #B67689;
+    max-width: 340px;
+    min-width: 340px;
+    min-height: 400px;
+    max-height: 400px;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     border-radius: 25px;
     border: 1rem solid #B67689;
+    transition: transform 1.0s;
 }
 
 .work-tile {
@@ -134,12 +135,52 @@ li:hover {
     transform: scale(1.05);
 }
 
+.work-tile:hover .work-image  {
+    opacity: 0;
+    
+}
+
+.work-grid-text {
+    transform: translate(0, 0);
+    transition: transform  1.0;
+}
+
+.work-grid-hidden-text {
+    display: none;
+    font-size: 15px;
+    
+}
+
+.work-tile:hover .work-grid-text{
+    transform: translateY(-350px);
+}
+
+.work-tile:hover .work-grid-hidden-text {
+    transform: translateY(-350px);
+    display: block; 
+}
+
+
+
 .work-section{
     position: relative;
     transform: translateY(150px);
     opacity: 0;
     transition: 1s all ease;
   }
+  
+
+
+
+
+
+
+
+
+
+
+
+
   
   .work-section.active{
     transform: translateY(0);
@@ -176,3 +217,4 @@ li:hover {
 .contact-links:hover {
     transform: scale(1.1);
 }
+
